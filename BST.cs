@@ -55,6 +55,27 @@ namespace BinarySearchTree
         {
             Console.WriteLine("Size of the binary search tree : " + (1 + leftCount + rightCount));
         }
+        public void Search(T element, BST<T> bst)
+        {
+            if (bst == null)
+            {
+                Console.WriteLine(element+" not found");
+            }
+            if (bst.nodeData.Equals(element))
+            {
+                Console.WriteLine(bst.nodeData+" is present in the binary search tree ");
+            }
+           
+            if (element.CompareTo(bst.nodeData) < 0)
+            {
+                Search(element, bst.leftTree);
+            }
+            if (element.CompareTo(bst.nodeData) > 0)
+            {
+                Search(element, bst.rightTree);
+            }
+
+        }
         public void Inorder()
         {
             if (leftTree != null)
