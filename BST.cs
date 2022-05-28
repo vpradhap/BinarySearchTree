@@ -20,6 +20,8 @@ namespace BinarySearchTree
             leftTree = null;
             rightTree = null;
         }
+        int leftCount = 0;
+        int rightCount = 0;
 
         public void Insert(T item)
         {
@@ -33,6 +35,7 @@ namespace BinarySearchTree
                 else
                 {
                     leftTree.Insert(item);
+                    leftCount++;
                 }
             }
             else
@@ -44,25 +47,31 @@ namespace BinarySearchTree
                 else
                 {
                     rightTree.Insert(item);
+                    rightCount++;
                 }
             }
         }
-
+        public void Size()
+        {
+            Console.WriteLine("Size of the binary search tree : " + (1 + leftCount + rightCount));
+        }
         public void Inorder()
         {
             if (leftTree != null)
             {
+                leftCount++;
                 leftTree.Inorder();
             }
-            Console.Write(nodeData + " ");
+            Console.Write(nodeData + "  ");
             if (rightTree != null)
             {
+                rightCount++;
                 rightTree.Inorder();
             }
         }
         public void Preorder()
         {
-            Console.Write(nodeData + " ");
+            Console.Write(nodeData + "  ");
             if (leftTree != null)
             {
                 leftTree.Preorder();
@@ -82,7 +91,7 @@ namespace BinarySearchTree
             {
                 rightTree.Postorder();
             }
-            Console.Write(nodeData + " ");
+            Console.Write(nodeData + "  ");
         }
     }
 }
